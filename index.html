@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>NullCrypto - the null cryptocurrency market</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/lib.js" defer></script>
+    <script src="js/prices.js" defer></script>
+    <script src="js/updater.js" defer></script>
+  </head>
+  <body>
+    <div class="bg-emerald-300 w-screen p-8">
+      <h1 class="font-thin text-xl px-8">Welcome back</h1>
+      <div class="flex flex-row justify-evenly">
+        <div>
+          <h3 class="text-gray-500 font-semibold uppercase">Cash</h3>
+          <span class="flex flex-row items-end"
+            ><h1 id="cash" class="text-emerald-900 font-light text-6xl">500</h1>
+            <span class="text-emerald-600 font-semibold text-2xl">$</span></span
+          >
+        </div>
+        <div>
+          <h3 class="text-gray-500 font-semibold uppercase">All funds</h3>
+          <span class="flex flex-row items-end"
+            ><h1 id="all" class="text-emerald-900 font-light text-6xl">500</h1>
+            <span class="text-emerald-600 font-semibold text-2xl">$</span></span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row items-center w-screen p-4 gap-2">
+      <h1 class="font-semibold text-gray-600">Cryptocurrency prices</h1>
+      <a href="##" class="text-xs text-gray-700 font-light mr-auto" id="refresh">[refresh]</a>
+      <h2 class="font-bold text-emerald-600">Prices by CoinGecko</h2>
+      <img class="w-8 h-8" src="coin.png">
+    </div>
+    <div class="m-8 gap-8 grid grid-cols-5 items-center w-fit">
+      <div class="">Name</div>
+      <div class="text-right">Holdings</div>
+      <div class="text-right">Price</div>
+      <div class="text-right">Value</div>
+      <div class="">Buy/sell</div>
+      <div class="flex flex-col">
+        <span class="flex flex-row gap-4"
+          ><span class="text-gray-500 font-semibold uppercase">btc</span
+          ><span>Bitcoin</span></span
+        ><span class="flex flex-row"
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.mexc.com/exchange/btc_usdt"
+            >[mexc]</a
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.coingecko.com/en/coins/bitcoin"
+            >[coingecko]</a
+          ></span
+        >
+      </div>
+      <div class="text-right font-bold text-lg" id="btc_holdings">0.00004</div>
+      <div class="text-right font-bold text-lg" id="btc_price">43000$</div>
+      <div class="text-right font-bold text-lg" id="btc_value">4$</div>
+      <div class="flex flex-row gap-4">
+        <button class="bg-emerald-400 p-2 px-4" id="btc_buy">buy</button>
+        <button class="bg-emerald-400 p-2 px-4" id="btc_sel">sell</button>
+      </div>
+      <div class="flex flex-col">
+        <span class="flex flex-row gap-4"
+          ><span class="text-gray-500 font-semibold uppercase">ETH</span
+          ><span>Ethereum</span></span
+        ><span class="flex flex-row"
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.mexc.com/exchange/eth_usdt"
+            >[mexc]</a
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.coingecko.com/en/coins/ethereum"
+            >[coingecko]</a
+          ></span
+        >
+      </div>
+      <div class="text-right font-bold text-lg" id="eth_holdings">0.00004</div>
+      <div class="text-right font-bold text-lg" id="eth_price">43000$</div>
+      <div class="text-right font-bold text-lg" id="eth_value">43000$</div>
+      <div class="flex flex-row gap-4">
+        <button class="bg-emerald-400 p-2 px-4" id="eth_buy">buy</button>
+        <button class="bg-emerald-400 p-2 px-4" id="eth_sel">sell</button>
+      </div>
+      <div class="flex flex-col">
+        <span class="flex flex-row gap-4"
+          ><span class="text-gray-500 font-semibold uppercase">BNB</span
+          ><span>BNB Smart Chain</span></span
+        ><span class="flex flex-row"
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.mexc.com/exchange/bnb_usdt"
+            >[mexc]</a
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.coingecko.com/en/coins/binancecoin"
+            >[coingecko]</a
+          ></span
+        >
+      </div>
+      <div class="text-right font-bold text-lg" id="bnb_holdings">0.00004</div>
+      <div class="text-right font-bold text-lg" id="bnb_price">43000$</div>
+      <div class="text-right font-bold text-lg" id="bnb_value">43000$</div>
+      <div class="flex flex-row gap-4">
+        <button class="bg-emerald-400 p-2 px-4" id="bnb_buy">buy</button>
+        <button class="bg-emerald-400 p-2 px-4" id="bnb_sel">sell</button>
+      </div>
+      <div class="flex flex-col">
+        <span class="flex flex-row gap-4"
+          ><span class="text-gray-500 font-semibold uppercase">SOL</span
+          ><span>Solana</span></span
+        ><span class="flex flex-row"
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.mexc.com/exchange/sol_usdt"
+            >[mexc]</a
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.coingecko.com/en/coins/solana"
+            >[coingecko]</a
+          ></span
+        >
+      </div>
+      <div class="text-right font-bold text-lg" id="sol_holdings">0.00004</div>
+      <div class="text-right font-bold text-lg" id="sol_price">43000$</div>
+      <div class="text-right font-bold text-lg" id="sol_value">43000$</div>
+      <div class="flex flex-row gap-4">
+        <button class="bg-emerald-400 p-2 px-4" id="sol_buy">buy</button>
+        <button class="bg-emerald-400 p-2 px-4" id="sol_sel">sell</button>
+      </div>
+
+      <div class="flex flex-col">
+        <span class="flex flex-row gap-4"
+          ><span class="text-gray-500 font-semibold uppercase">XRP</span
+          ><span>ripple</span></span
+        ><span class="flex flex-row"
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.mexc.com/exchange/xrp_usdt"
+            >[mexc]</a
+          ><a
+						target="_blank" rel="noopener noreferrer"
+            class="text-xs text-gray-700 font-light"
+            href="https://www.coingecko.com/en/coins/ripple"
+            >[coingecko]</a
+          ></span
+        >
+      </div>
+      <div class="text-right font-bold text-lg" id="xrp_holdings">0.00004</div>
+      <div class="text-right font-bold text-lg" id="xrp_price">43000$</div>
+      <div class="text-right font-bold text-lg" id="xrp_value">43000$</div>
+      <div class="flex flex-row gap-4">
+        <button class="bg-emerald-400 p-2 px-4" id="xrp_buy">buy</button>
+        <button class="bg-emerald-400 p-2 px-4" id="xrp_sel">sell</button>
+      </div>
+    </div>
+    <dialog id="trade">
+      <div class="p-8 flex flex-col gap-4">
+        <h2>
+          <span id="operation" class="text-xl font-semibold">SELL</span>
+          <input id="amount" type="number" class="p-1 border" value="0" /><span
+            id="currency"
+            class="text-lg text-gray-500 font-bold"
+            >BTC</span
+          >
+        </h2>
+        <h2>
+          for <input id="price" type="number" value="0" class="p-1 border" />$
+        </h2>
+        <div class="flex flex-row gap-4 ml-auto justify-end mt-8">
+          <button
+            class="border-emerald-500 border-4 p-2 px-4 text-md"
+            id="cancel"
+          >
+            Cancel
+          </button>
+
+          <button
+            class="bg-emerald-400 p-2 px-4 text-md font-bold"
+            id="confirm"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
